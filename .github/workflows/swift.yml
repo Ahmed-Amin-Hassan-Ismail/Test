@@ -18,13 +18,11 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run unit tests
-      run: bundle exec fastlane unitTestLane
+    
   
   uiTests:
     needs: build
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run ui tests
-      run: bundle exec fastlane uiTestLane
+  
