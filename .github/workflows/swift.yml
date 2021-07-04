@@ -18,8 +18,6 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install Bundle
-      run: bundle install
     - name: Run unit tests
       run: bundle exec fastlane unitTestLane
   
@@ -28,7 +26,5 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install Bundle
-      run: bundle install
     - name: Run ui tests
       run: bundle exec fastlane uiTestLane
