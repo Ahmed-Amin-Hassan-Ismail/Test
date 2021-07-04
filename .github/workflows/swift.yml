@@ -57,21 +57,6 @@ jobs:
     - name: Run unit tests
       run: bundle exec fastlane unitTestLane
   
-  integrationTests:
-    needs: build
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Download build
-      uses: actions/download-artifact@v2
-      with:
-        name: build
-        path: derivedData/Build/Products/Debug-iphonesimulator/Portfolius-iOS.app
-    - name: Install Bundle
-      run: bundle install
-    - name: Run integration tests
-      run: bundle exec fastlane integrationTestLane
-
   uiTests:
     needs: build
     runs-on: macos-latest
