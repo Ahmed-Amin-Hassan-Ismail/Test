@@ -30,17 +30,8 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: build
-        path: derivedData/Build/Products/Debug-iphonesimulator/Portfolius-iOS.app     
-    - name: Upload Runner
-      uses: actions/upload-artifact@v2
-      with:
-        name: runner
-        path: derivedData/Build/Products/Debug-iphonesimulator/Portfolius-iOSUITests-Runner.app
-    - name: Upload Core Tests
-      uses: actions/upload-artifact@v2
-      with:
-        name: coreTests
-        path: derivedData/Build/Products/Debug-iphonesimulator/PortfoliusCoreTests.xctest
+        path: derivedData/Build/Products/Debug-iphonesimulator/MVVMDemo.app     
+   
      
   unitTests:
     needs: build
@@ -51,7 +42,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: coreTests
-        path: derivedData/Build/Products/Debug-iphonesimulator/PortfoliusCoreTests.xctest
+        path: derivedData/Build/Products/Debug-iphonesimulator/MVVMDemoTests.xctest
     - name: Install Bundle
       run: bundle install
     - name: Run unit tests
@@ -66,12 +57,12 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: build
-        path: derivedData/Build/Products/Debug-iphonesimulator/Portfolius-iOS.app
+        path: derivedData/Build/Products/Debug-iphonesimulator/MVVMDemoUITests.app
     - name: Download runner
       uses: actions/download-artifact@v2
       with:
         name: runner
-        path: derivedData/Build/Products/Debug-iphonesimulator/Portfolius-iOSUITests-Runner.app   
+        path: derivedData/Build/Products/Debug-iphonesimulator/MVVMDemoUITests.app   
     - name: Install Bundle
       run: bundle install
     - name: Run ui tests
